@@ -1,5 +1,7 @@
-# Created by https://www.toptal.com/developers/gitignore/api/java,gradle,intellij+all,windows,visualstudiocode,macos
-# Edit at https://www.toptal.com/developers/gitignore?templates=java,gradle,intellij+all,windows,visualstudiocode,macos
+
+# Created by https://www.toptal.com/developers/gitignore/api/java,gradle,intellij+all,windows,macos,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=java,gradle,intellij+all,windows,macos,visualstudiocode
+
 
 ### Intellij+all ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -86,8 +88,10 @@ fabric.properties
 
 .idea/*
 
-!.idea/codeStyles
-!.idea/runConfigurations
+
+#!.idea/codeStyles
+#!.idea/runConfigurations
+
 
 ### Java ###
 # Compiled class file
@@ -220,4 +224,5 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
-# End of https://www.toptal.com/developers/gitignore/api/java,gradle,intellij+all,windows,visualstudiocode,macos
+# End of https://www.toptal.com/developers/gitignore/api/java,gradle,intellij+all,windows,macos,visualstudiocode
+
