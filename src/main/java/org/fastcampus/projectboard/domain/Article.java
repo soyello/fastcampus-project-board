@@ -24,8 +24,7 @@ import java.util.Set;
         @Index(columnList = "createdAt"),
         @Index(columnList = "createdBy"),
 })
-@EntityListeners(AuditingEntityListener.class)
-public class Article {
+public class Article extends AuditingFields{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,19 +43,6 @@ public class Article {
     @OneToMany(mappedBy = "article",cascade = CascadeType.ALL)//이렇게 되면 FK가 설정되어서 article이 삭제되면, 댓글도 삭제됨
     @ToString.Exclude //이렇게 하지 않으면 영원히 순환 참조하는 경우가 발생할 수 있음, 보통 여기서 끊음
     private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
-
-    @CreatedDate
-    @Column(nullable = false)
-    private LocalDateTime createdAt;
-    @CreatedBy
-    @Column(nullable = false, length = 100)
-    private String createdBy;
-    @LastModifiedDate
-    @Column(nullable = false)
-    private LocalDateTime modifiedAt;
-    @LastModifiedBy
-    @Column(nullable = false, length = 100)
-    private String modifiedBy;
 
     protected Article(){}
 
