@@ -21,7 +21,7 @@ class ArticleControllerTest {
         this.mvc = mvc;
     }
 
-    @Disabled("구현 중")
+    //@Disabled("구현 중")
     @Test
     @DisplayName("[view][GET] 게시글 리스트 (게시판) 페이지 - 정상 호출")
     public void givenNothing_whenRequestingArticlesView_thenReturnsArticlesView() throws Exception {
@@ -30,7 +30,7 @@ class ArticleControllerTest {
         //when & then
         mvc.perform(get("/articles"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(view().name("articles/index"))
                 .andExpect(model().attributeExists("articles")); //내용까지 검증하는 건 아니고 존재 여부 체크가 가능하다..
 
@@ -44,7 +44,7 @@ class ArticleControllerTest {
         //when & then
         mvc.perform(get("/articles/1"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(view().name("articles/detail"))
                 .andExpect(model().attributeExists("articleComments"))
                 .andExpect(model().attributeExists("article")); //내용까지 검증하는 건 아니고 존재 여부 체크가 가능하다..
@@ -60,7 +60,7 @@ class ArticleControllerTest {
         //when & then
         mvc.perform(get("/articles/search"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(view().name("articles/search"));
 
     }
@@ -74,7 +74,7 @@ class ArticleControllerTest {
         //when & then
         mvc.perform(get("/articles/search-hashtag"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(view().name("articles/hashtag"));
 
     }
